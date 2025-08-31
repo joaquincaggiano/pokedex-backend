@@ -4,9 +4,9 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { CommonModule } from './common/common.module';
+import { envConfiguration } from './config/app.config';
 import { PokemonModule } from './pokemon/pokemon.module';
 import { SeedModule } from './seed/seed.module';
-import { envConfiguration } from './config/app.config';
 
 @Module({
   imports: [
@@ -22,8 +22,4 @@ import { envConfiguration } from './config/app.config';
     SeedModule,
   ],
 })
-export class AppModule {
-  constructor() {
-    console.log(process.env.MONGODB);
-  }
-}
+export class AppModule {}
