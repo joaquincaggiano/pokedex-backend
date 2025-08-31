@@ -5,6 +5,7 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { CommonModule } from './common/common.module';
 import { envConfiguration } from './config/app.config';
+import { JoiValidationSchema } from './config/joi.validation';
 import { PokemonModule } from './pokemon/pokemon.module';
 import { SeedModule } from './seed/seed.module';
 
@@ -12,6 +13,7 @@ import { SeedModule } from './seed/seed.module';
   imports: [
     ConfigModule.forRoot({
       load: [envConfiguration],
+      validationSchema: JoiValidationSchema,
     }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'public'),
